@@ -93,7 +93,7 @@
   <body>
     
       <div class="testbox">
-      <form action="/">
+      <form action="{{ url_for('predict') }}" method="POST">
         <h1 align="center">Simple Spam Detector</h1>
         <p align="center">Enter your text message below and it will detect if it is a spam or not.Go on! Try it.</p>
         <hr/>
@@ -104,7 +104,7 @@
         <textarea rows="10" placeholder="Enter your text here" name="message"></textarea>
     
         <div class="btn-block">
-          <button type="submit" href="/">Detect</button>
+          <button type="submit" >Detect</button>
         </div>
 
       </form>
