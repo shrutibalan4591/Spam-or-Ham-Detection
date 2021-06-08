@@ -104,29 +104,22 @@
         <h1 align="center">Simple Spam Detector</h1>
         <p align="center">Enter your text message below and it will detect if it is a spam or not.Go on! Try it.</p>
         <hr/>
-        </div>
-		</br>
+	</br>
 		       
         <h2 align="center">Your prediction here</h4>
-		<fieldset align="center">
+	<fieldset align="center">
           <legend>Prediction</legend>
           {% if prediction==1 %}
-			 <h2 style="color:Red;">Its a Spam</h2>
-			 <h3 style="color:Grey">
-				 <span class='danger'>SPAM
-				 </span></h3>
+			<h2 style="color:Red;">Prediction: <span class='danger'>Gotcha! This is a SPAM message.</span></h2>
 	  {% elif prediction==0 %}
-			 <h2 style="color:Green;">Its not a Spam </h2>
-			 <h3 style="color:Grey;">
-				 <span class='safe'>NOT SPA
-				 </span></h3>
+			<h2 style="color:Green;">Prediction: <span class='safe'>Great! This is NOT a spam message.</span></h2>
 	  {% endif %}      
         </fieldset>
         <br/>
         
 
-      </form>
-    </div>
+     </form>
+   </div>
   
   </body>
 </html>
