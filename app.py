@@ -1,9 +1,10 @@
 import pickle
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
+cv = pickle.load(open('cv-transform.pkl','rb'))
 
 @app.route("/")
 def home():
