@@ -2,7 +2,7 @@ import pickle
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('spam-model.pkl', 'rb'))
 cv = pickle.load(open('cv-transform.pkl','rb'))
 
 @app.route('/')
