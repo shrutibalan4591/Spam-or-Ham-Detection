@@ -95,41 +95,38 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    if request.method == 'POST':
-      data = request.form['message']
+	if request.method == 'POST':
+		data = request.form['message']
 
-      word_count = len(str(data).split(" "))
+	        word_count = len(str(data).split(" "))
 
-      corpus = create_corpus(data)
+	        corpus = create_corpus(data)
 
-      # Vectorisation - CountVectorizer
-      cv=CountVectorizer(stop_words=stop_words, 
-                        max_features=300, 
-                        ngram_range=(1,3))
-      X=cv.fit_transform(corpus)
+	        # Vectorisation - CountVectorizer
+	        cv=CountVectorizer(stop_words=stop_words, 
+				  max_features=300, 
+				  ngram_range=(1,3))
+	        X=cv.fit_transform(corpus)
 
-      # Converting to a matrix of integers
-      tfidf_transformer=TfidfTransformer(smooth_idf=True,use_idf=True)
-      tfidf_transformer.fit(X)
+	        # Converting to a matrix of integers
+	        tfidf_transformer=TfidfTransformer(smooth_idf=True,use_idf=True)
+	        tfidf_transformer.fit(X)
 
-      # get feature names
-      feature_names=cv.get_feature_names()
+                # get feature names
+                feature_names=cv.get_feature_names()
       
-      # fetch document for which keywords needs to be extracted
-      #doc=corpus[532]
-      
-      #generate tf-idf for the given document
-      tf_idf_vector=tfidf_transformer.transform(cv.transform(corpus))
+                #generate tf-idf for the given document
+                tf_idf_vector=tfidf_transformer.transform(cv.transform(corpus))
 
-    	#vect = cv.transform(data).toarray()
+    		#vect = cv.transform(data).toarray()
 
-      #sort the tf-idf vectors by descending order of scores
-      sorted_items=sort_coo(tf_idf_vector.tocoo())
-      #extract only the top n; n here is 10
-      keywords = extract_topn_from_vector(feature_names,sorted_items,5)
+      		#sort the tf-idf vectors by descending order of scores
+      		sorted_items=sort_coo(tf_idf_vector.tocoo())
+      		#extract only the top n; n here is 10
+      		keywords = extract_topn_from_vector(feature_names,sorted_items,5)
                
-      #my_prediction = model.predict(vect)
-      return render_template('prediction.html', extractions=keywords)
+      		#my_prediction = model.predict(vect)
+      		return render_template('prediction.html', extractions=keywords)
 
 if __name__ == '__main__':
     app.run(debug=True)
