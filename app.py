@@ -96,7 +96,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     if request.method == 'POST':
-    	data = request.form['message']
+      data = request.form['message']
 
       word_count = len(str(data).split(" "))
 
