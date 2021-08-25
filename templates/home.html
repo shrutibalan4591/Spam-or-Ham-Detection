@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Spam Detector</title>
+    <title>Keyword Extractor</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -101,8 +101,8 @@
   <body>
     <div class="testbox">
       <form action="{{ url_for('predict') }}" method="POST">
-        <h1 align="center">Simple Spam Detector</h1>
-        <p align="center">Enter your text message below and it will detect if it is a spam or not.Go on! Try it.</p>
+        <h1 align="center">Keyword Extractor</h1>
+        <p align="center">Enter your text article below and it will extract important keywords associated with the article.Go on! Try it.</p>
         <hr/>
         </div>
         
@@ -111,7 +111,7 @@
         <textarea rows="10" placeholder="Enter your text here" name="message" align="center"></textarea>
     
         <div class="btn-block">
-          <button type="submit" >Detect</button>
+          <button type="submit" >Extract</button>
         </div>
 
       </form>
