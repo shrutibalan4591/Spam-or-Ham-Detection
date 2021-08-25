@@ -2,12 +2,14 @@
 	<body>
 		<form>
 			<fieldset align="center">
-          			<legend>Prediction</legend>
-          				{% if prediction==1 %}
-					<h2 style="color:Red;">Prediction: <span class='danger'>Gotcha! This is a SPAM message.</span></h2>
-	  				{% elif prediction==0 %}
-					<h2 style="color:Green;">Prediction: <span class='safe'>Great! This is NOT a spam message.</span></h2>
-	  				{% endif %}      
+          			<legend>Extracted Keywords</legend>
+          				<table>
+					    <tr>
+						{%for key, value in keywords.items()%}
+						  <td>{{ key }}</td>
+						{% endfor %}
+					    </tr>
+					</table>      
         		</fieldset>
 		</form>
 	</body>
