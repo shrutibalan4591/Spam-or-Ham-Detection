@@ -130,7 +130,7 @@ def predict():
     #extract only the top n; n here is 10
     keywords=extract_topn_from_vector(feature_names,sorted_items,5)
 
-    return render_template('prediction.html', extractions=keywords)
+    return render_template('extraction.html', extractions=keywords)
 
 if __name__ == '__main__':
     app.run(debug=True)
